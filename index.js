@@ -31,10 +31,12 @@ app.get("/facebook", async (req, res) => {
 
 async function postMemeToFacebook(url, caption) {
   const facebookUrl = `https://graph.facebook.com/${process.env.FACEBOOK_PAGE_ID}/photos`;
+  let value =
+    "EAAVd9ZBHGyd8BO6m6jwGJ7eDsGbbZCyQ1LMes2t0zYbM1ultYZBe0NNw2IagQ6AqSlFF2Qn1gpL0SUPEGTTagrNE2SAp4O1qevGYAZAEdwZBJT97NP9TPUuER33EJZCZAxwHphEH7eb7WtzuZCXC2brUHnicon8weStcG05BFusZCjLSJzbnVgjqapuILJn8nIZBgZD";
   const data = {
     url,
     caption, // Include the caption here
-    access_token: process.env.FACEBOOK_PAGE_ACCESS_TOKEN,
+    access_token: value,
   };
 
   return axios.post(facebookUrl, data);
