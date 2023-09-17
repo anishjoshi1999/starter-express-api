@@ -5,6 +5,9 @@ require("dotenv").config();
 app.get("/", (req, res) => {
   res.send("Welcome to Facebook Meme API");
 });
+app.get("/hello", (req, res) => {
+  res.send("Hello anish");
+});
 app.post("/facebook", async (req, res) => {
   try {
     // Fetch a meme from MEME_URI
