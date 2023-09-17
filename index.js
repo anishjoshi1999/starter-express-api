@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const axios = require("axios");
 require("dotenv").config();
-
+app.get("/", (req, res) => {
+  res.send("Welcome to Facebook Meme API");
+});
 app.post("/facebook", async (req, res) => {
   try {
     // Fetch a meme from MEME_URI
