@@ -9,9 +9,9 @@ app.get("/hello", (req, res) => {
   console.log("Hello from hello route");
   res.send("Hello anish");
 });
-app.post("/facebook", async (req, res) => {
+app.get("/facebook", async (req, res) => {
   try {
-    // Fetch a meme from MEME_URI
+    // Fetch a meme from MEME_URIaa
     const memeResponse = await axios.get(process.env.MEME_URI);
     const { title, url } = memeResponse.data;
 
@@ -19,13 +19,13 @@ app.post("/facebook", async (req, res) => {
     const caption = `${title}`;
 
     // Post the meme with caption to Facebook
+    console.log(memeResponse);
     const facebookResponse = await postMemeToFacebook(url, caption);
-
     console.log("Automatic POST request triggered:", facebookResponse.data);
-    res.status(200).json({ message: "Meme posted on Facebook successfully" });
+    //res.status(200).json({ message: "Meme posted on Facebook successfully" });
   } catch (error) {
     console.error("An error occurred:", error);
-    res.status(500).json({ error: "Internal server error" });
+    //res.status(500).json({ error: "Internal server error" });
   }
 });
 
